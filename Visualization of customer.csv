@@ -1,0 +1,40 @@
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+categories = pd.read_csv("categories.csv")
+customers = pd.read_csv("customers.csv")
+employees = pd.read_csv("employees.csv")
+
+#Using the Dataset
+print(customers.head())
+print(customers.info())
+print(customers.describe())
+print(customers.isnull().sum())
+
+#Graph of customer age distribution
+plt.figure(figsize=(8,5))
+sns.histplot(customers["age"], bins=10)
+plt.title("Customer Age Distribution")
+plt.xlabel("Age")
+plt.ylabel("Number of Customers")
+
+plt.show()
+
+#Graph of gender distribution 
+plt.figure(figsize=(6,4))
+sns.countplot(data=customers,
+              x="gender")
+plt.title("Gender Distribution")
+plt.show()
+
+#Graph of Customers by city
+plt.figure(figsize=(8,5))
+sns.countplot(
+    data=customers,
+    x="city",
+    order=customers["city"].value_counts().index)
+plt.xticks(rotation=45)
+plt.title("Customers by City")
+plt.show()
