@@ -38,3 +38,40 @@ sns.countplot(
 plt.xticks(rotation=45)
 plt.title("Customers by City")
 plt.show()
+
+#Pie Chart of Customers by city
+city_count = customers["city"].value_counts()
+plt.figure(figsize=(7,7))
+plt.pie(
+    city_count,
+    labels=city_count.index,
+    autopct="%1.1f%%"
+)
+plt.title("Customer Percentage by City")
+plt.show()
+
+#Boxplot opf Age
+plt.figure(figsize=(7,4))
+sns.boxplot(x=customers["age"])
+plt.title("Customer Age Boxplot")
+plt.show()
+
+#Stats of Age
+print("Average Age :", customers["age"].mean())
+
+print("Maximum Age :", customers["age"].max())
+
+print("Minimum Age :", customers["age"].min())
+
+print("Median Age :", customers["age"].median())
+
+#Correlation Heatmap of Customer ids and their Age
+plt.figure(figsize=(6,4))
+sns.heatmap(
+    customers[["customer_id","age"]].corr(),
+    annot=True,
+    cmap="coolwarm"
+)
+plt.title("Correlation Heatmap")
+plt.show()
+
