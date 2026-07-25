@@ -75,3 +75,15 @@ sns.heatmap(
 plt.title("Correlation Heatmap")
 plt.show()
 
+#Employees list
+print(employees.head())
+print(employees.info())
+
+#Bar Chart of Categories
+plt.figure(figsize=(8,5))
+sns.countplot(
+    data=categories,
+    y="category_name"
+)
+plt.title("Available Product Categories")
+plt.show()
