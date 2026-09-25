@@ -87,5 +87,3 @@ sns.countplot(
 )
 plt.title("Available Product Categories")
 plt.show()
-
-.
